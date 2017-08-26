@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand"><p class="white--text" style="font-weight: bold">SA44 Team 4</p></a>
+      </div>
+      <div *ngIf="isLoggedIn">
+        <img class="circular--square" src= {{photoURL}} height="42" width="42"> 
+        <p class="navbar-text navbar-right white--text"> Signed in as  <a href="#" class="navbar-link" style="font-weight: bold"> {{user_email}}</a></p>       
+      </div>
+      <div *ngIf="!isLoggedIn">
+        <p class="navbar-text navbar-right white--text"><a href="#" class="navbar-link" style="font-weight: bold">Sign in</a></p>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+  <!-- must declare as router outlet, else it will not run -->
+</div>
+
