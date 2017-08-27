@@ -1,0 +1,45 @@
+<p>
+  create-employee works!
+</p>
+<div class="container">
+  <form novalidate (ngSubmit)='uploadSingle()' #addUserForm="ngForm">
+
+    <h1>Add New User</h1>
+    <div class="form-group">
+      <label for="name">Name: </label>
+      <input type="name" class="form-control" name="name" id="name" placeholder="Name" #name="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input type="email" class="form-control" name="email" id="email" placeholder="Email" #email='ngModel' ngModel>
+    </div>
+
+    <div class="form-group">
+      <label for="telephone">Telephone: </label>
+      <input type="tel" class="form-control" name="telephone" id="telephone" placeholder="Telephone" #telephone='ngModel' ngModel>
+    </div>
+
+    <div class="form-group">
+      <label for="skills">Skills: </label>
+      <input type="text" class="form-control" name="skills" id="skills" placeholder="Skills" #skills='ngModel' ngModel>
+    </div>
+
+    <label class="custom-file">
+        <input type="file" id="file" class="custom-file-input" required (change)="detectFiles($event)">
+        <span class="custom-file-control"></span>
+      </label>
+      <br/><br/>
+    <button class="btn btn-primary" type="submit">
+    Submit
+    </button>
+
+    <div *ngIf="currentUpload">
+      <div class="progress">
+        <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+      </div>
+      Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+    </div>
+
+  </form>
+</div>
