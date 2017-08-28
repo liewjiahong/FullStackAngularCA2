@@ -1,13 +1,26 @@
-<div class="container">
-  <div class="row">
+<div class="container-fluid"> 
+  <button class="btn btn-default" (click)="navigateCreate()">
+    New Profile
+    </button>
 
+    <form novalidate (ngSubmit)='uploadSingle()' #addUserForm="ngForm">
+    <div class="row">
+      <label for="query">Search: </label>
+      <input type="text" class="form-control" name="query" id="query"
+      placeholder="Enter query" #query="ngModel" ngModel (keyup)="onChange($event)">
+    </div>
+  </form>
+
+  <br/><br/>
+
+  <div class="row">
     <div *ngFor="let profile of profiles | async">
 
-      <div *ngIf="$index % 3 == 0" class="clearfix"></div>
-
+      <!--<div *ngIf="$index % 3 == 0" class="clearfix"></div>-->
+      
       <div class="col-lg-3 col-md-4 col-xs-6 thumb">
         <div class="row">
-          <img src="{{ profile.photo }}" alt="" width="200px">
+          <img src="{{ profile.photo }}" alt="" >
         </div>
         <div class="caption">
           <h4>{{ profile.name }}</h4>
@@ -17,5 +30,5 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
 </div>

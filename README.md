@@ -26,3 +26,13 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Team Members
+1. Cheok Mei Li
+2. Divya Jyothi Siddavaram
+3. Liew Jia Hong
+4. Pahalavan Anitha Sathyapriya
+5. Prithy Yathavamurthy
+6. Sheam Qiao Shi Jolene
+7. Tian Xingjian
+8. Zhang Bailing

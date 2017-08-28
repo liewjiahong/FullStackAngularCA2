@@ -33,7 +33,8 @@ export const config = {
 //for this path, use this component.
 const routes : Routes = [
   { path: '', component: ViewEmployeesComponent},
-  { path: 'login', component: LoginPageComponent}
+  { path: 'login', component: LoginPageComponent},
+  { path: 'create', component: CreateEmployeeComponent}
 ];
 
 @NgModule({

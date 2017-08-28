@@ -19,12 +19,19 @@ export class EmployeeService {
   constructor(private db: AngularFireDatabase, private fb : FirebaseApp) {
   }
 
-  retrieveProfiles() {
-    this.profiles = this.db.list('https://angularca2-80186.firebaseio.com/Profiles');
-    this.profiles.forEach(element => {
-      console.log(element);
-    });
-    return this.profiles;
+   retrieveProfiles(queryString : string) {
+    if (queryString == ''){
+      this.profiles = this.db.list('https://angularca2-80186.firebaseio.com/Profiles');
+      return this.profiles;
+    }  else {
+      this.profiles = this.db.list('/Profiles', {
+        query: {
+          orderByChild: 'name',
+          equalTo: queryString,
+        }
+      });
+      return this.profiles;
+    } 
   }
 
   addProfile(upload : Upload, profile : Profile) {

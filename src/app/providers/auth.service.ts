@@ -6,6 +6,10 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import * as firebase from 'firebase/app';
 
+let provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({
+  prompt: 'select_account'
+});
 
 @Injectable()
 export class AuthService {
@@ -17,7 +21,7 @@ export class AuthService {
    }
 
    loginWithGoogle () {
-     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+     return this.afAuth.auth.signInWithPopup(provider);
 
    }
 

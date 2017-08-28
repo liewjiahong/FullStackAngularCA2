@@ -13,12 +13,22 @@ export class ViewEmployeesComponent implements OnInit {
 
   profiles : FirebaseListObservable<any[]>;
   profileList : any[];
+  queryString : string;
 
-  constructor(public employeeService : EmployeeService) {
+  constructor(public employeeService : EmployeeService, private router: Router) {
 
    }
 
   ngOnInit() {
-    this.profiles = this.employeeService.retrieveProfiles();
+    this.profiles = this.employeeService.retrieveProfiles('');
+  }
+
+  navigateCreate(){
+    this.router.navigate(['create']);
+  }
+
+  onChange(event) {
+    this.queryString = event.target.value;
+    this.profiles = this.employeeService.retrieveProfiles(this.queryString);
   }
 }
