@@ -23,7 +23,8 @@ export class CreateEmployeeComponent implements OnInit {
   profile : Profile;
 
 
-  constructor( private employeeService: EmployeeService) {
+
+  constructor( private employeeService: EmployeeService, private router:Router) {
     this.profile = new Profile();
    }
 
@@ -46,6 +47,10 @@ export class CreateEmployeeComponent implements OnInit {
     console.log(file);
     this.upload = new Upload(file);
     this.employeeService.addProfile(this.upload, this.profile);
+    
+
   }
+
+  
 
 }

@@ -22,11 +22,15 @@
       <input type="text" class="form-control" name="skills" id="skills" placeholder="Skills" #skills='ngModel' ngModel>
     </div>
 
-    <label class="custom-file">
-        <input type="file" id="file" class="custom-file-input" required (change)="detectFiles($event)">
-        <span class="custom-file-control"></span>
-      </label>
-      <br/><br/>
+    
+    <div class="form-group">
+
+    <label for="fileupload">Upload Photo</label>
+
+    <input type="file" id="file" class="form-control-file" required (change)="detectFiles($event)">
+
+    </div>
+    <br/>
     <button class="btn btn-primary" type="submit">
     Submit
     </button>

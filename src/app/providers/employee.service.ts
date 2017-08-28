@@ -8,6 +8,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import { Upload } from '../models/upload';
 import { Profile } from '../models/profile';
+import { Router } from '@angular/router';
 
 import * as firebase from 'firebase/app';
 
@@ -16,7 +17,7 @@ export class EmployeeService {
 
   profiles: FirebaseListObservable<any[]>;
 
-  constructor(private db: AngularFireDatabase, private fb : FirebaseApp) {
+  constructor(private db: AngularFireDatabase, private fb : FirebaseApp, private router:Router) {
   }
 
    retrieveProfiles(queryString : string) {
@@ -64,6 +65,9 @@ export class EmployeeService {
   // used in addProfile
   private saveFileData(profile : Profile) {
     this.profiles = this.db.list('https://angularca2-80186.firebaseio.com/Profiles');
-    this.profiles.push(profile);
+    this.profiles.push(profile)
+    .then(_=> window.alert("Upload Successfully!"))
+    .catch(err => window.alert("Upload Error!"));
+    this.router.navigate([''])
   }  
 }
